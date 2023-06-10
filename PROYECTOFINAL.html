@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cuestionario</title>
+  <link rel="stylesheet" href="Stilo P.css">
+</head>
+<body>
+  <h1>Cuestionario sobre TP </h1>
+
+  <form id="quizForm">
+    <h3>Pregunta 1: ¿Cuál es la capital de Francia?</h3>
+    <label>
+      <input type="radio" name="q1" value="a"> a) París
+    </label><br>
+    <label>
+      <input type="radio" name="q1" value="b"> b) Madrid
+    </label><br>
+    <label>
+      <input type="radio" name="q1" value="c"> c) Roma
+    </label><br>
+
+    <h3>Pregunta 2: ¿Cuánto es 2 + 2?</h3>
+    <label>
+      <input type="radio" name="q2" value="a"> a) 3
+    </label><br>
+    <label>
+      <input type="radio" name="q2" value="b"> b) 4
+    </label><br>
+    <label>
+      <input type="radio" name="q2" value="c"> c) 5
+    </label><br>
+
+    <h3>Pregunta 3: ¿Cuál es el color del cielo?</h3>
+    <label>
+      <input type="radio" name="q3" value="a"> a) Verde
+    </label><br>
+    <label>
+      <input type="radio" name="q3" value="b"> b) Amarillo
+    </label><br>
+    <label>
+      <input type="radio" name="q3" value="c"> c) Azul
+    </label><br>
+
+    <h3>Pregunta 4: ¿Quien fue el ultimo ganador del balon de oro?</h3>
+    <label>
+      <input type="radio" name="q4" value="a"> a) Lionel Messi
+    </label><br>
+    <label>
+      <input type="radio" name="q4" value="b"> b) Cristiano Ronaldo 
+    </label><br>
+    <label>
+      <input type="radio" name="q4" value="c"> c) Karin Benzema
+    </label><br>
+
+
+    <br>
+    <input type="submit" value="Enviar">
+
+    <input type="submit" value="salir">
+
+  </form>
+
+  <script>
+    document.getElementById('quizForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Evita el envío del formulario
+      
+      
+      var incorrectAnswers = []; // Almacena las respuestas incorrectas
+
+      // Verificar respuestas
+      var q1Answer = document.querySelector('input[name="q1"]:checked').value;
+      if (q1Answer !== 'a') {
+        incorrectAnswers.push(1);
+      }
+
+      var q2Answer = document.querySelector('input[name="q2"]:checked').value;
+      if (q2Answer !== 'b') {
+        incorrectAnswers.push(2);
+      }
+
+      var q3Answer = document.querySelector('input[name="q3"]:checked').value;
+      if (q3Answer !== 'c') {
+        incorrectAnswers.push(3);
+      }
+
+      var q4Answer = document.querySelector('input[name="q4"]:checked').value;
+      if (q4Answer !== 'c') {
+        incorrectAnswers.push(4);
+      }
+
+
+      // Mostrar respuestas incorrectas
+      if (incorrectAnswers.length > 0) {
+        var message = 'Respuestas incorrectas en las preguntas: ' + incorrectAnswers.join(', ');
+        alert(message);
+
+        // Resaltar respuestas incorrectas en rojo
+        for (var i = 0; i < incorrectAnswers.length; i++) {
+          var questionNumber = incorrectAnswers[i];
+          var incorrectOption = document.querySelector('input[name="q' + questionNumber + '"][value="' + eval('q' + questionNumber + 'Answer') + '"]');
+          incorrectOption.parentNode.classList.add('incorrect');
+        }
+      } else {
+        alert('Todas las respuestas son correctas. ¡Felicidades!');
+}
+});
+</script>
+
+</body>
+</html>

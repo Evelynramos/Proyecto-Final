@@ -1,0 +1,27 @@
+.incorrect {
+    color: red;
+    font-weight: bold;
+  }
+
+  h1{
+      color: skyblue;
+
+  
+    
+  }
+
+  body{
+    background-color: #333333;
+    font-family: Arial, sans-serif;
+    
+  }
+
+
+
+ h3{
+    color: skyblue;
+ }
+
+ label{
+    color: white;
+ }
